@@ -3,7 +3,8 @@
     "contentVersion": "1.0.0.0",
     "parameters": {},
     "variables": {
-        "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
+        "templateBaseUrl": "https://raw.githubusercontent.com/yooakim/arm-templates/master/templates/",
+        "sharedStorageTemplate": "[concat(variables('templateBaseUrl'), 'Microsoft.Storage/azuredeploy.json')]",
         "sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
         "vmTemplateUrl": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]"
     },
