@@ -43,7 +43,7 @@
             "location": "[resourceGroup().location]",
             "kind": "",
             "properties": {
-                "name": "[parameters('name')]",
+                "name": "[variables('name')]",
                 "workerSize": "[parameters('workerSize')]",
                 "workerSizeId": "[parameters('workerSizeId')]",
                 "numberOfWorkers": "[parameters('numberOfWorkers')]",
