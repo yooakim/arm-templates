@@ -23,8 +23,8 @@
             "defaultValue": "0"
         },
         "numberOfWorkers": {
-            "type": "string",
-            "defaultValue": "1"
+            "type": "int",
+            "defaultValue": 1
         },
         "hostingEnvironment": {
             "type": "string",
