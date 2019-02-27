@@ -4,7 +4,7 @@
     "parameters": {
         "name": {
             "type": "string",
-            "defaultValue": "[concat(resourceGroup().name,'-app-service-plan')]"
+            "defaultValue": "[resourceGroup().name]"
         },
         "sku": {
             "type": "string",
@@ -23,17 +23,24 @@
             "defaultValue": "0"
         },
         "numberOfWorkers": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "1"
         },
         "hostingEnvironment": {
             "type": "string",
             "defaultValue": ""
         }
     },
+    "variables": {
+        "name": {
+            "defaultValue":"[concat(parameters('name'),'-app-service-plan')]"
+        }
+    },
+
     "resources": [
         {
             "apiVersion": "2016-09-01",
-            "name": "[parameters('name')]",
+            "name": "[variables('name')]",
             "type": "Microsoft.Web/serverfarms",
             "location": "[resourceGroup().location]",
             "kind": "",
