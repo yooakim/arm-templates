@@ -3,8 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "name": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().name]"
+            "type": "string"
         },
         "sku": {
             "type": "string",
