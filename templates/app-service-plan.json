@@ -32,10 +32,7 @@
         }
     },
     "variables": {
-        "name": {
-            "type":"string",
-            "defaultValue":"[concat(parameters('name'),'-app-service-plan')]"
-        }
+        "name": "[tolower(concat(parameters('name'),'-app-service-plan'))]"
     },
 
     "resources": [
