@@ -3,7 +3,10 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "name": {
-            "type": "string"
+            "type": "string",
+            "metadata": {
+                "description": "Customer shortname"
+            }
         },
         "sku": {
             "type": "string",
@@ -54,5 +57,8 @@
                 "Name": "[parameters('skuCode')]"
             }
         }
-    ]
+    ],
+    "outputs": {
+
+    }
 }

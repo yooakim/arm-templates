@@ -1,0 +1,77 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]",
+            "metadata": {
+              "description": "The location in which the resources should be deployed."
+            }
+        },
+        "virtualMachineName": {
+            "type": "string",
+            "metadata": {
+                "description": "Base name for VM and other components"
+            }
+        },
+        "adminUsername": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of Administrator user on the VM"
+            }
+        },
+        "adminPassword": {
+            "type": "securestring",
+            "metadata": {
+                "description": "Administrator password for use in the VM"
+            }
+        },
+        "EnvironmentSize": {
+            "type": "string",
+            "defaultValue": "small",
+            "allowedValues": [
+                "small",
+                "medium",
+                "large"
+            ],
+            "metadata": {
+                "description": "Small, medium or large"
+            }
+}
+    },
+    "variables": {
+        "templateBaseUrl": "https://raw.githubusercontent.com/yooakim/arm-templates/master/templates/",
+        "sharedStorageTemplate": "[concat(variables('templateBaseUrl'), 'Microsoft.Storage/azuredeploy.json')]",
+        "sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
+        "vmTemplateUrl": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]",
+        "suffix": "[uniqueString(resourceGroup().id, resourceGroup().location)]",
+        "VMName": "[toLower(concat(parameters('virtualMachineName'), variables('suffix')))]",
+        "resourceGroupName": "[toLower(resourceGroup().name)]",
+        "TS-Size":{
+            "medium":{
+                "VMSize": "Standard_D2s_v3"
+            },
+            "large":{
+                "VMSize": "Standard_D8s_v3"
+            }
+}
+    },
+    "resources": [
+      {
+        "apiVersion": "2016-01-01",
+        "type": "Microsoft.Storage/storageAccounts",
+        "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+        "location": "[resourceGroup().location]",
+        "tags": {
+          "Dept": "Finance",
+          "Environment": "Production"
+        },
+        "sku": {
+          "name": "Standard_LRS"
+        },
+        "kind": "Storage",
+        "properties": { }
+      }
+    ]
+}
