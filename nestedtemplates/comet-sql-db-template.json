@@ -1,0 +1,68 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "customerName": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 7,
+            "metadata": {
+              "description": "Customer shortname."
+            }
+        },
+        "moduleName": {
+            "type": "string",
+            "allowedValues": [ 
+                "vod",
+                "acq",
+                "metadata",
+                ""
+             ],
+            "metadata": {
+              "description": "Comet module to be deployed."
+            }
+        }
+    },
+    "variables": {
+        "collation":  "Finnish_Swedish_CI_AS",
+        "databaseName":  "[toLower(concat(parameters('customerName'),'-',parameters('moduleName'),'-db'))]",
+        "tier":  "Standard",
+        "skuName":  "S0",
+        "maxSizeBytes":  268435456000,
+        "serverName":"comethayu",
+        "serverLocation":  "[resourceGroup().location]",
+        "sampleName":  "",
+        "zoneRedundant":  false,
+        "licenseType":  "",
+        "readScaleOut":  "Disabled",
+        "numberOfReplicas":  0,
+        "databaseTags":  {
+                "Application": "[parameters('moduleName')]",
+                "Customer": "[parameters('customerName')]",
+                "Environment": "PROD"
+            }
+
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Sql/servers/databases",
+            "sku": {
+                "name": "[variables('skuName')]",
+                "tier": "[variables('tier')]"
+            },
+            "name": "[concat(variables('serverName'), '/', variables('databaseName'))]",
+            "apiVersion": "2017-10-01-preview",
+            "location": "[variables('serverLocation')]",
+            "tags": "[variables('databaseTags')]",
+            "properties": {
+                "collation": "[variables('collation')]",
+                "maxSizeBytes": "[variables('maxSizeBytes')]",
+                "sampleName": "[variables('sampleName')]",
+                "zoneRedundant": "[variables('zoneRedundant')]",
+                "licenseType": "[variables('licenseType')]",
+                "readScale": "[variables('readScaleOut')]",
+                "readReplicaCount": "[variables('numberOfReplicas')]"
+            }
+        }
+    ]
+}
