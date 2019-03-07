@@ -6,7 +6,7 @@ Test deploy a linked template with a loop
 
 ```powershell
 
-$templateUri='https://raw.githubusercontent.com/yooakim/arm-templates/master/templates/three-public-ips.json'
+$templateUri='https://raw.githubusercontent.com/yooakim/arm-templates/master/nestedtemplates/three-public-ips.json'
 
 az group create -n testip -l westeurope
 az group deployment create --resource-group testip --template-uri $templateUri
