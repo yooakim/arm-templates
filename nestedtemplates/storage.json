@@ -1,0 +1,1549 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vulnerabilityAssessments_Default_storageContainerPath": {
+            "defaultValue": null,
+            "type": "SecureString"
+        },
+        "servers_comet_hayu_name": {
+            "defaultValue": "comet-hayu",
+            "type": "String"
+        },
+        "sites_comet_hayu_api1_name": {
+            "defaultValue": "comet-hayu-api1",
+            "type": "String"
+        },
+        "virtualMachines_runner_name": {
+            "defaultValue": "runner",
+            "type": "String"
+        },
+        "components_comet_hayu_name": {
+            "defaultValue": "comet-hayu",
+            "type": "String"
+        },
+        "virtualNetworks_comet_vnet_name": {
+            "defaultValue": "comet-vnet",
+            "type": "String"
+        },
+        "networkInterfaces_runner139_name": {
+            "defaultValue": "runner139",
+            "type": "String"
+        },
+        "publicIPAddresses_runner_ip_name": {
+            "defaultValue": "runner-ip",
+            "type": "String"
+        },
+        "config_web_name": {
+            "defaultValue": "web",
+            "type": "String"
+        },
+        "networkSecurityGroups_runner_nsg_name": {
+            "defaultValue": "runner-nsg",
+            "type": "String"
+        },
+        "storageAccounts_cometstoragehayou_name": {
+            "defaultValue": "cometstoragehayou",
+            "type": "String"
+        },
+        "advisors_DropIndex_name": {
+            "defaultValue": "DropIndex",
+            "type": "String"
+        },
+        "databases_cometapix_name": {
+            "defaultValue": "cometapix",
+            "type": "String"
+        },
+        "keys_ServiceManaged_name": {
+            "defaultValue": "ServiceManaged",
+            "type": "String"
+        },
+        "advisors_CreateIndex_name": {
+            "defaultValue": "CreateIndex",
+            "type": "String"
+        },
+        "subnets_web_name": {
+            "defaultValue": "web",
+            "type": "String"
+        },
+        "advisors_DefragmentIndex_name": {
+            "defaultValue": "DefragmentIndex",
+            "type": "String"
+        },
+        "auditingPolicies_Default_name": {
+            "defaultValue": "Default",
+            "type": "String"
+        },
+        "advisors_ForceLastGoodPlan_name": {
+            "defaultValue": "ForceLastGoodPlan",
+            "type": "String"
+        },
+        "alertrules_Failure_Anomalies___comet_hayu_name": {
+            "defaultValue": "Failure Anomalies - comet-hayu",
+            "type": "String"
+        },
+        "advisors_DbParameterization_name": {
+            "defaultValue": "DbParameterization",
+            "type": "String"
+        },
+        "encryptionProtector_current_name": {
+            "defaultValue": "current",
+            "type": "String"
+        },
+        "firewallRules_Joakim_Home_IP_name": {
+            "defaultValue": "Joakim_Home_IP",
+            "type": "String"
+        },
+        "firewallRules_June_Office_IP_name": {
+            "defaultValue": "June_Office_IP",
+            "type": "String"
+        },
+        "elasticPools_Comet_HAYU_sql_pool_name": {
+            "defaultValue": "Comet-HAYU-sql-pool",
+            "type": "String"
+        },
+        "vulnerabilityAssessments_Default_name": {
+            "defaultValue": "Default",
+            "type": "String"
+        },
+        "subnets_GatewaySubnet_name": {
+            "defaultValue": "GatewaySubnet",
+            "type": "String"
+        },
+        "securityRules_RDP_name": {
+            "defaultValue": "RDP",
+            "type": "String"
+        },
+        "securityRules_SSH_name": {
+            "defaultValue": "SSH",
+            "type": "String"
+        },
+        "virtualNetworkRules_web2sqlVnetRule1_name": {
+            "defaultValue": "web2sqlVnetRule1",
+            "type": "String"
+        },
+        "securityRules_HTTPS_name": {
+            "defaultValue": "HTTPS",
+            "type": "String"
+        },
+        "firewallRules_AllowAllWindowsAzureIps_name": {
+            "defaultValue": "AllowAllWindowsAzureIps",
+            "type": "String"
+        },
+        "advisors_DropIndex_name_1": {
+            "defaultValue": "DropIndex",
+            "type": "String"
+        },
+        "advisors_CreateIndex_name_1": {
+            "defaultValue": "CreateIndex",
+            "type": "String"
+        },
+        "auditingPolicies_Default_name_1": {
+            "defaultValue": "Default",
+            "type": "String"
+        },
+        "databases_master_name": {
+            "defaultValue": "master",
+            "type": "String"
+        },
+        "geoBackupPolicies_Default_name": {
+            "defaultValue": "Default",
+            "type": "String"
+        },
+        "advisors_DefragmentIndex_name_1": {
+            "defaultValue": "DefragmentIndex",
+            "type": "String"
+        },
+        "auditingPolicies_Default_name_2": {
+            "defaultValue": "Default",
+            "type": "String"
+        },
+        "geoBackupPolicies_Default_name_1": {
+            "defaultValue": "Default",
+            "type": "String"
+        },
+        "advisors_ForceLastGoodPlan_name_1": {
+            "defaultValue": "ForceLastGoodPlan",
+            "type": "String"
+        },
+        "advisors_DbParameterization_name_1": {
+            "defaultValue": "DbParameterization",
+            "type": "String"
+        },
+        "vulnerabilityAssessments_Default_name_1": {
+            "defaultValue": "Default",
+            "type": "String"
+        },
+        "transparentDataEncryption_current_name": {
+            "defaultValue": "current",
+            "type": "String"
+        },
+        "vulnerabilityAssessments_Default_name_2": {
+            "defaultValue": "Default",
+            "type": "String"
+        },
+        "transparentDataEncryption_current_name_1": {
+            "defaultValue": "current",
+            "type": "String"
+        },
+        "hostNameBindings_comet_hayu_api1.azurewebsites.net_name": {
+            "defaultValue": "comet-hayu-api1.azurewebsites.net",
+            "type": "String"
+        },
+        "virtualMachines_runner_id": {
+            "defaultValue": "/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Compute/disks/runner_OsDisk_1_9e3beb0962794520acbf2f1cbb7d0417",
+            "type": "String"
+        },
+        "virtualMachines_runner_id_1": {
+            "defaultValue": "/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Compute/disks/runner_DataDisk_0",
+            "type": "String"
+        },
+        "sites_comet_hayu_api1_serverFarmId": {
+            "defaultValue": "/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/yobtest/providers/Microsoft.Web/serverfarms/jwab-sp",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Compute/virtualMachines/runner'.",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[parameters('virtualMachines_runner_name')]",
+            "apiVersion": "2018-10-01",
+            "location": "westeurope",
+            "tags": {
+                "Customer": "HAYU",
+                "Environment": "Production"
+            },
+            "scale": null,
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_DS1_v2"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "MicrosoftWindowsServer",
+                        "offer": "WindowsServer",
+                        "sku": "2019-Datacenter-Core",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "osType": "Windows",
+                        "name": "[concat(parameters('virtualMachines_runner_name'),'_OsDisk_1_9e3beb0962794520acbf2f1cbb7d0417')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                            "storageAccountType": "Premium_LRS",
+                            "id": "[parameters('virtualMachines_runner_id')]"
+                        },
+                        "diskSizeGB": 127
+                    },
+                    "dataDisks": [
+                        {
+                            "lun": 0,
+                            "name": "[concat(parameters('virtualMachines_runner_name'),'_DataDisk_0')]",
+                            "createOption": "Attach",
+                            "caching": "ReadOnly",
+                            "writeAcceleratorEnabled": false,
+                            "managedDisk": {
+                                "storageAccountType": "Premium_LRS",
+                                "id": "[parameters('virtualMachines_runner_id_1')]"
+                            },
+                            "diskSizeGB": 256
+                        }
+                    ]
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_runner_name')]",
+                    "adminUsername": "cometadmin",
+                    "windowsConfiguration": {
+                        "provisionVMAgent": true,
+                        "enableAutomaticUpdates": true
+                    },
+                    "secrets": [],
+                    "allowExtensionOperations": true
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_runner139_name'))]"
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "[concat('https', '://', parameters('storageAccounts_cometstoragehayou_name'), '.blob.core.windows.net', '/')]"
+                    }
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_runner139_name'))]",
+                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_cometstoragehayou_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/microsoft.insights/alertrules/Failure Anomalies - comet-hayu'.",
+            "type": "microsoft.insights/alertrules",
+            "name": "[parameters('alertrules_Failure_Anomalies___comet_hayu_name')]",
+            "apiVersion": "2014-04-01",
+            "location": "West Europe",
+            "tags": {
+                "hidden-link:/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/microsoft.insights/components/comet-hayu": "Resource"
+            },
+            "scale": null,
+            "properties": {
+                "name": "[parameters('alertrules_Failure_Anomalies___comet_hayu_name')]",
+                "description": "",
+                "isEnabled": true,
+                "condition": {
+                    "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
+                    "dataSource": {
+                        "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
+                        "resourceUri": "[resourceId('microsoft.insights/components', parameters('components_comet_hayu_name'))]",
+                        "metricNamespace": null,
+                        "metricName": "advanced::A3108E3D-5E26-44CF-B232-783F5E20EF10::ewAiAEgAeQBwAGUAcgBpAG8AbgBBAHAAcABsAGkAYwBhAHQAaQBvAG4AUwBpAGQAIgA6AG4AdQBsAGwALAAiAEgAeQBwAGUAcgBpAG8AbgBTAHUAYgBqAGUAYwB0AFMAaQBkACIAOgBuAHUAbABsACwAIgBIAHkAcABlAHIAaQBvAG4ATwBiAHMAZQByAHYAZQByAFMAaQBkACIAOgBuAHUAbABsACwAIgBDAHUAcwB0AG8AbQBlAHIAQQBjAGMAbwB1AG4AdABJAGQAIgA6ACIAMAAwADAAMAAwADAAMAAwAC0AMAAwADAAMAAtADAAMAAwADAALQAwADAAMAAwAC0AMAAwADAAMAAwADAAMAAwADAAMAAwADAAIgAsACIAQQBwAHAAbABpAGMAYQB0AGkAbwBuAE4AYQBtAGUAIgA6AG4AdQBsAGwALAAiAEEAcABwAGwAaQBjAGEAdABpAG8AbgBJAGQAIgA6AG4AdQBsAGwALAAiAFAAcgBvAGYAaQBsAGUASQBkACIAOgAwACwAIgBXAGkAbgBkAG8AdwBTAGkAegBlAEkAbgBNAGkAbgB1AHQAZQBzACIAOgA2ADAALAAiAE0AZQB0AHIAaQBjAE4AYQBtAGUAIgA6ACIAIgAsACIAVABoAHIAZQBzAGgAbwBsAGQAIgA6ADIALgAwACwAIgBBAGwAZQByAHQAVABlAG0AcABsAGEAdABlAEkAZAAiADoAIgAiACwAIgBSAHUAbABlAEkAZAAiADoAIgAiACwAIgBSAHUAbABlAE4AYQBtAGUAIgA6ACIAIgAsACIAUgB1AGwAZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4AIgA6ACIAIgAsACIAUgBlAHMAbwB1AHIAYwBlAEkAZAAiADoAbgB1AGwAbAAsACIAUwB1AGIAcwBjAHIAaQBwAHQAaQBvAG4ASQBkACIAOgBuAHUAbABsACwAIgBBAGcAZwByAGUAZwBhAHQAZQBGAHUAbgBjAHQAaQBvAG4AIgA6ACIAIgAsACIAQwBvAG0AcABhAHIAaQBzAG8AbgBPAHAAZQByAGEAdABvAHIAIgA6ACIAewBcACIAQgBhAHMAZQBsAGkAbgBlAFQAaQBtAGUAcwBwAGEAbgBcACIAOgBcACIAMAAwADoANAAwADoAMAAwAFwAIgAsAFwAIgBJAG4AcwBpAGcAaAB0AHMAUwBlAHIAdgBpAGMAZQBMAGEAZwBcACIAOgBcACIAMAAwADoAMAAwADoAMAAwAFwAIgAsAFwAIgBCAHUAZgBmAGUAcgBUAGkAbQBlAFwAIgA6AFwAIgAwADAAOgAwADEAOgAwADAAXAAiACwAXAAiAEIAbABvAGIAUwB0AG8AcgBhAGcAZQBMAG8AZwBnAGkAbgBnAEUAbgBhAGIAbABlAGQAXAAiADoAZgBhAGwAcwBlACwAXAAiAFUAcwBlAHIAUwB1AHAAcAByAGUAcwBzAGkAbwBuAHMAXAAiADoAbgB1AGwAbAAsAFwAIgBQAHIAbwBmAGkAbABlAEkAZABcACIAOgAwACwAXAAiAEUAbQBhAGkAbABUAHkAcABlAFwAIgA6ADAALABcACIAUgBkAGQARgBhAGkAbAB1AHIAZQBzAFMAcABpAGsAZQBUAGgAcgBlAHMAaABvAGwAZABcACIAOgAzAC4AMAAsAFwAIgBSAGEAdwBQAHIAbwBhAGMAdABpAHYAZQBSAHUAbABlAEMAbwBuAGYAaQBnAFwAIgA6AG4AdQBsAGwAfQAiACwAIgBFAG4AYQBiAGwAZQBTAGUAbgBkAEUAbQBhAGkAbABUAG8AQwB1AHMAdABvAG0AIgA6AGYAYQBsAHMAZQAsACIAQwB1AHMAdABvAG0ARQBtAGEAaQBsAHMARQBuAGMAbwBkAGUAZAAiADoAIgAiACwAIgBFAG4AYQBiAGwAZQBTAGUAbgBkAEUAbQBhAGkAbABUAG8ATwB3AG4AZQByAHMAIgA6AGYAYQBsAHMAZQB9AA=="
+                    },
+                    "operator": "GreaterThan",
+                    "threshold": 2,
+                    "windowSize": "PT1H"
+                },
+                "action": {
+                    "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
+                    "sendToServiceOwners": true,
+                    "customEmails": []
+                }
+            },
+            "dependsOn": [
+                "[resourceId('microsoft.insights/components', parameters('components_comet_hayu_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/microsoft.insights/components/comet-hayu'.",
+            "type": "microsoft.insights/components",
+            "kind": "web",
+            "name": "[parameters('components_comet_hayu_name')]",
+            "apiVersion": "2015-05-01",
+            "location": "westeurope",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "Application_Type": "web",
+                "Flow_Type": null,
+                "Request_Source": "IbizaWebAppExtensionCreate",
+                "HockeyAppId": null,
+                "SamplingPercentage": null
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Network/networkInterfaces/runner139'.",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[parameters('networkInterfaces_runner139_name')]",
+            "apiVersion": "2018-10-01",
+            "location": "westeurope",
+            "tags": {
+                "Customer": "HAYU",
+                "Environment": "Production"
+            },
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "22b16953-0f76-4e39-8310-647613a58623",
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "etag": "W/\"6a5093d5-e34c-4ae7-a3ce-354672f8877c\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "192.168.100.4",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_runner_ip_name'))]"
+                            },
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_comet_vnet_name'), parameters('subnets_web_name'))]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": [],
+                    "appliedDnsServers": [],
+                    "internalDomainNameSuffix": "bthuzbtuygwe5fiin2ilrlv43f.ax.internal.cloudapp.net"
+                },
+                "macAddress": "00-0D-3A-47-D5-62",
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": false,
+                "networkSecurityGroup": {
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_runner_nsg_name'))]"
+                },
+                "primary": true,
+                "tapConfigurations": []
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_runner_ip_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_comet_vnet_name'), parameters('subnets_web_name'))]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_runner_nsg_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Network/networkSecurityGroups/runner-nsg'.",
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "name": "[parameters('networkSecurityGroups_runner_nsg_name')]",
+            "apiVersion": "2018-10-01",
+            "location": "westeurope",
+            "tags": {
+                "Customer": "HAYU",
+                "Environment": "Production"
+            },
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "7d9605ad-2876-40f1-929c-035cbe1fa2a1",
+                "securityRules": [
+                    {
+                        "name": "RDP",
+                        "etag": "W/\"ce5a2c36-a6e4-4cd5-b005-a28c8675100d\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "3389",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 300,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "SSH",
+                        "etag": "W/\"ce5a2c36-a6e4-4cd5-b005-a28c8675100d\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "22",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 320,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "HTTPS",
+                        "etag": "W/\"ce5a2c36-a6e4-4cd5-b005-a28c8675100d\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "443",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 340,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    }
+                ],
+                "defaultSecurityRules": [
+                    {
+                        "name": "AllowVnetInBound",
+                        "etag": "W/\"ce5a2c36-a6e4-4cd5-b005-a28c8675100d\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow inbound traffic from all VMs in VNET",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "VirtualNetwork",
+                            "destinationAddressPrefix": "VirtualNetwork",
+                            "access": "Allow",
+                            "priority": 65000,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowAzureLoadBalancerInBound",
+                        "etag": "W/\"ce5a2c36-a6e4-4cd5-b005-a28c8675100d\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow inbound traffic from azure load balancer",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "AzureLoadBalancer",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 65001,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "DenyAllInBound",
+                        "etag": "W/\"ce5a2c36-a6e4-4cd5-b005-a28c8675100d\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Deny all inbound traffic",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Deny",
+                            "priority": 65500,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowVnetOutBound",
+                        "etag": "W/\"ce5a2c36-a6e4-4cd5-b005-a28c8675100d\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow outbound traffic from all VMs to all VMs in VNET",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "VirtualNetwork",
+                            "destinationAddressPrefix": "VirtualNetwork",
+                            "access": "Allow",
+                            "priority": 65000,
+                            "direction": "Outbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowInternetOutBound",
+                        "etag": "W/\"ce5a2c36-a6e4-4cd5-b005-a28c8675100d\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow outbound traffic from all VMs to Internet",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "Internet",
+                            "access": "Allow",
+                            "priority": 65001,
+                            "direction": "Outbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "DenyAllOutBound",
+                        "etag": "W/\"ce5a2c36-a6e4-4cd5-b005-a28c8675100d\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Deny all outbound traffic",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Deny",
+                            "priority": 65500,
+                            "direction": "Outbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    }
+                ]
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Network/publicIPAddresses/runner-ip'.",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "sku": {
+                "name": "Basic",
+                "tier": "Regional"
+            },
+            "name": "[parameters('publicIPAddresses_runner_ip_name')]",
+            "apiVersion": "2018-10-01",
+            "location": "westeurope",
+            "tags": {
+                "Customer": "HAYU",
+                "Environment": "Production"
+            },
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "ce16c21d-daa0-42d4-9bb8-8bd69a3f175a",
+                "ipAddress": "40.68.200.207",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4,
+                "ipTags": []
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Network/virtualNetworks/comet-vnet'.",
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[parameters('virtualNetworks_comet_vnet_name')]",
+            "apiVersion": "2018-10-01",
+            "location": "westeurope",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "864ccf0c-c174-4fac-9508-6f10b8aebeed",
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "192.168.0.0/16"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "web",
+                        "etag": "W/\"2572a830-6d57-450c-9559-7847c2fb5c38\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "192.168.100.0/24",
+                            "serviceEndpoints": [
+                                {
+                                    "provisioningState": "Succeeded",
+                                    "service": "Microsoft.AzureActiveDirectory",
+                                    "locations": [
+                                        "*"
+                                    ]
+                                },
+                                {
+                                    "provisioningState": "Succeeded",
+                                    "service": "Microsoft.AzureCosmosDB",
+                                    "locations": [
+                                        "*"
+                                    ]
+                                },
+                                {
+                                    "provisioningState": "Succeeded",
+                                    "service": "Microsoft.EventHub",
+                                    "locations": [
+                                        "*"
+                                    ]
+                                },
+                                {
+                                    "provisioningState": "Succeeded",
+                                    "service": "Microsoft.KeyVault",
+                                    "locations": [
+                                        "*"
+                                    ]
+                                },
+                                {
+                                    "provisioningState": "Succeeded",
+                                    "service": "Microsoft.ServiceBus",
+                                    "locations": [
+                                        "*"
+                                    ]
+                                },
+                                {
+                                    "provisioningState": "Succeeded",
+                                    "service": "Microsoft.Sql",
+                                    "locations": [
+                                        "westeurope"
+                                    ]
+                                },
+                                {
+                                    "provisioningState": "Succeeded",
+                                    "service": "Microsoft.Storage",
+                                    "locations": [
+                                        "westeurope",
+                                        "northeurope"
+                                    ]
+                                }
+                            ],
+                            "delegations": []
+                        }
+                    },
+                    {
+                        "name": "GatewaySubnet",
+                        "etag": "W/\"2572a830-6d57-450c-9559-7847c2fb5c38\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "192.168.99.0/24",
+                            "serviceEndpoints": [],
+                            "delegations": []
+                        }
+                    }
+                ],
+                "virtualNetworkPeerings": [],
+                "enableDdosProtection": false,
+                "enableVmProtection": false
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu'.",
+            "type": "Microsoft.Sql/servers",
+            "kind": "v12.0",
+            "name": "[parameters('servers_comet_hayu_name')]",
+            "apiVersion": "2015-05-01-preview",
+            "location": "westeurope",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "administratorLogin": "cometdba",
+                "version": "12.0"
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Storage/storageAccounts/cometstoragehayou'.",
+            "type": "Microsoft.Storage/storageAccounts",
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "kind": "StorageV2",
+            "name": "[parameters('storageAccounts_cometstoragehayou_name')]",
+            "apiVersion": "2018-07-01",
+            "location": "westeurope",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "networkAcls": {
+                    "bypass": "AzureServices",
+                    "virtualNetworkRules": [],
+                    "ipRules": [],
+                    "defaultAction": "Allow"
+                },
+                "supportsHttpsTrafficOnly": true,
+                "encryption": {
+                    "services": {
+                        "file": {
+                            "enabled": true
+                        },
+                        "blob": {
+                            "enabled": true
+                        }
+                    },
+                    "keySource": "Microsoft.Storage"
+                },
+                "accessTier": "Hot"
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Web/sites/comet-hayu-api1'.",
+            "type": "Microsoft.Web/sites",
+            "kind": "app",
+            "name": "[parameters('sites_comet_hayu_api1_name')]",
+            "apiVersion": "2016-08-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "enabled": true,
+                "hostNameSslStates": [
+                    {
+                        "name": "[concat(parameters('sites_comet_hayu_api1_name'),'.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "virtualIP": null,
+                        "thumbprint": null,
+                        "toUpdate": null,
+                        "hostType": "Standard"
+                    },
+                    {
+                        "name": "[concat(parameters('sites_comet_hayu_api1_name'),'.scm.azurewebsites.net')]",
+                        "sslState": "Disabled",
+                        "virtualIP": null,
+                        "thumbprint": null,
+                        "toUpdate": null,
+                        "hostType": "Repository"
+                    }
+                ],
+                "serverFarmId": "[parameters('sites_comet_hayu_api1_serverFarmId')]",
+                "reserved": false,
+                "siteConfig": null,
+                "scmSiteAlsoStopped": false,
+                "hostingEnvironmentProfile": null,
+                "clientAffinityEnabled": true,
+                "clientCertEnabled": false,
+                "hostNamesDisabled": false,
+                "containerSize": 0,
+                "dailyMemoryTimeQuota": 0,
+                "cloningInfo": null,
+                "httpsOnly": false
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Network/networkSecurityGroups/runner-nsg/securityRules/RDP'.",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "name": "[concat(parameters('networkSecurityGroups_runner_nsg_name'), '/', parameters('securityRules_RDP_name'))]",
+            "apiVersion": "2018-10-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "TCP",
+                "sourcePortRange": "*",
+                "destinationPortRange": "3389",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 300,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_runner_nsg_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Network/networkSecurityGroups/runner-nsg/securityRules/SSH'.",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "name": "[concat(parameters('networkSecurityGroups_runner_nsg_name'), '/', parameters('securityRules_SSH_name'))]",
+            "apiVersion": "2018-10-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "TCP",
+                "sourcePortRange": "*",
+                "destinationPortRange": "22",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 320,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_runner_nsg_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Network/networkSecurityGroups/runner-nsg/securityRules/HTTPS'.",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "name": "[concat(parameters('networkSecurityGroups_runner_nsg_name'), '/', parameters('securityRules_HTTPS_name'))]",
+            "apiVersion": "2018-10-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "TCP",
+                "sourcePortRange": "*",
+                "destinationPortRange": "443",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 340,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_runner_nsg_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Network/virtualNetworks/comet-vnet/subnets/web'.",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "name": "[concat(parameters('virtualNetworks_comet_vnet_name'), '/', parameters('subnets_web_name'))]",
+            "apiVersion": "2018-10-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "192.168.100.0/24",
+                "serviceEndpoints": [
+                    {
+                        "provisioningState": "Succeeded",
+                        "service": "Microsoft.AzureActiveDirectory",
+                        "locations": [
+                            "*"
+                        ]
+                    },
+                    {
+                        "provisioningState": "Succeeded",
+                        "service": "Microsoft.AzureCosmosDB",
+                        "locations": [
+                            "*"
+                        ]
+                    },
+                    {
+                        "provisioningState": "Succeeded",
+                        "service": "Microsoft.EventHub",
+                        "locations": [
+                            "*"
+                        ]
+                    },
+                    {
+                        "provisioningState": "Succeeded",
+                        "service": "Microsoft.KeyVault",
+                        "locations": [
+                            "*"
+                        ]
+                    },
+                    {
+                        "provisioningState": "Succeeded",
+                        "service": "Microsoft.ServiceBus",
+                        "locations": [
+                            "*"
+                        ]
+                    },
+                    {
+                        "provisioningState": "Succeeded",
+                        "service": "Microsoft.Sql",
+                        "locations": [
+                            "westeurope"
+                        ]
+                    },
+                    {
+                        "provisioningState": "Succeeded",
+                        "service": "Microsoft.Storage",
+                        "locations": [
+                            "westeurope",
+                            "northeurope"
+                        ]
+                    }
+                ],
+                "delegations": []
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_comet_vnet_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Network/virtualNetworks/comet-vnet/subnets/GatewaySubnet'.",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "name": "[concat(parameters('virtualNetworks_comet_vnet_name'), '/', parameters('subnets_GatewaySubnet_name'))]",
+            "apiVersion": "2018-10-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "192.168.99.0/24",
+                "serviceEndpoints": [],
+                "delegations": []
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_comet_vnet_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu/advisors/CreateIndex'.",
+            "type": "Microsoft.Sql/servers/advisors",
+            "name": "[concat(parameters('servers_comet_hayu_name'), '/', parameters('advisors_CreateIndex_name'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_comet_hayu_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu/advisors/DropIndex'.",
+            "type": "Microsoft.Sql/servers/advisors",
+            "name": "[concat(parameters('servers_comet_hayu_name'), '/', parameters('advisors_DropIndex_name'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_comet_hayu_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu/advisors/DbParameterization'.",
+            "type": "Microsoft.Sql/servers/advisors",
+            "name": "[concat(parameters('servers_comet_hayu_name'), '/', parameters('advisors_DbParameterization_name'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_comet_hayu_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu/advisors/DefragmentIndex'.",
+            "type": "Microsoft.Sql/servers/advisors",
+            "name": "[concat(parameters('servers_comet_hayu_name'), '/', parameters('advisors_DefragmentIndex_name'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_comet_hayu_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu/advisors/ForceLastGoodPlan'.",
+            "type": "Microsoft.Sql/servers/advisors",
+            "name": "[concat(parameters('servers_comet_hayu_name'), '/', parameters('advisors_ForceLastGoodPlan_name'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_comet_hayu_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu/auditingPolicies/Default'.",
+            "type": "Microsoft.Sql/servers/auditingPolicies",
+            "name": "[concat(parameters('servers_comet_hayu_name'), '/', parameters('auditingPolicies_Default_name'))]",
+            "apiVersion": "2014-04-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "auditingState": "New",
+                "eventTypesToAudit": "PlainSQL_Success,PlainSQL_Failure,ParameterizedSQL_Success,ParameterizedSQL_Failure,StoredProcedure_Success,StoredProcedure_Failure,Login_Success,Login_Failure,TransactionManagement_Success,TransactionManagement_Failure",
+                "storageAccountName": null,
+                "storageAccountKey": null,
+                "storageAccountSecondaryKey": null,
+                "storageTableEndpoint": null,
+                "storageAccountResourceGroupName": null,
+                "storageAccountSubscriptionId": null,
+                "fullAuditLogsTableName": "SQLDBAuditLogsComethayu",
+                "auditLogsTableName": "Comethayu",
+                "retentionDays": "0"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_comet_hayu_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu/databases/cometapix'.",
+            "type": "Microsoft.Sql/servers/databases",
+            "sku": {
+                "name": "ElasticPool",
+                "tier": "Standard"
+            },
+            "kind": "v12.0,user,pool",
+            "name": "[concat(parameters('servers_comet_hayu_name'), '/', parameters('databases_cometapix_name'))]",
+            "apiVersion": "2017-03-01-preview",
+            "location": "westeurope",
+            "tags": {
+                "Customer": "HAYU"
+            },
+            "scale": null,
+            "properties": {
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "maxSizeBytes": 268435456000,
+                "elasticPoolId": "[resourceId('Microsoft.Sql/servers/elasticPools', parameters('servers_comet_hayu_name'), parameters('elasticPools_Comet_HAYU_sql_pool_name'))]",
+                "catalogCollation": "SQL_Latin1_General_CP1_CI_AS",
+                "zoneRedundant": false
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_comet_hayu_name'))]",
+                "[resourceId('Microsoft.Sql/servers/elasticPools', parameters('servers_comet_hayu_name'), parameters('elasticPools_Comet_HAYU_sql_pool_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu/elasticPools/Comet-HAYU-sql-pool'.",
+            "type": "Microsoft.Sql/servers/elasticPools",
+            "kind": "pool",
+            "name": "[concat(parameters('servers_comet_hayu_name'), '/', parameters('elasticPools_Comet_HAYU_sql_pool_name'))]",
+            "apiVersion": "2014-04-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "edition": "Standard",
+                "dtu": 100,
+                "databaseDtuMin": 0,
+                "databaseDtuMax": 100,
+                "storageMB": 102400,
+                "zoneRedundant": false
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_comet_hayu_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu/firewallRules/AllowAllWindowsAzureIps'.",
+            "type": "Microsoft.Sql/servers/firewallRules",
+            "name": "[concat(parameters('servers_comet_hayu_name'), '/', parameters('firewallRules_AllowAllWindowsAzureIps_name'))]",
+            "apiVersion": "2015-05-01-preview",
+            "scale": null,
+            "properties": {
+                "startIpAddress": "0.0.0.0",
+                "endIpAddress": "0.0.0.0"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_comet_hayu_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu/firewallRules/Joakim_Home_IP'.",
+            "type": "Microsoft.Sql/servers/firewallRules",
+            "name": "[concat(parameters('servers_comet_hayu_name'), '/', parameters('firewallRules_Joakim_Home_IP_name'))]",
+            "apiVersion": "2015-05-01-preview",
+            "scale": null,
+            "properties": {
+                "startIpAddress": "213.100.194.162",
+                "endIpAddress": "213.100.194.162"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_comet_hayu_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu/firewallRules/June_Office_IP'.",
+            "type": "Microsoft.Sql/servers/firewallRules",
+            "name": "[concat(parameters('servers_comet_hayu_name'), '/', parameters('firewallRules_June_Office_IP_name'))]",
+            "apiVersion": "2015-05-01-preview",
+            "scale": null,
+            "properties": {
+                "startIpAddress": "83.233.67.231",
+                "endIpAddress": "83.233.67.231"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_comet_hayu_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu/encryptionProtector/current'.",
+            "type": "Microsoft.Sql/servers/encryptionProtector",
+            "kind": "servicemanaged",
+            "name": "[concat(parameters('servers_comet_hayu_name'), '/', parameters('encryptionProtector_current_name'))]",
+            "apiVersion": "2015-05-01-preview",
+            "scale": null,
+            "properties": {
+                "serverKeyName": "ServiceManaged",
+                "serverKeyType": "ServiceManaged"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_comet_hayu_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu/keys/ServiceManaged'.",
+            "type": "Microsoft.Sql/servers/keys",
+            "kind": "servicemanaged",
+            "name": "[concat(parameters('servers_comet_hayu_name'), '/', parameters('keys_ServiceManaged_name'))]",
+            "apiVersion": "2015-05-01-preview",
+            "scale": null,
+            "properties": {
+                "serverKeyType": "[parameters('keys_ServiceManaged_name')]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_comet_hayu_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu/virtualNetworkRules/web2sqlVnetRule1'.",
+            "type": "Microsoft.Sql/servers/virtualNetworkRules",
+            "name": "[concat(parameters('servers_comet_hayu_name'), '/', parameters('virtualNetworkRules_web2sqlVnetRule1_name'))]",
+            "apiVersion": "2015-05-01-preview",
+            "scale": null,
+            "properties": {
+                "virtualNetworkSubnetId": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_comet_vnet_name'), parameters('subnets_web_name'))]",
+                "ignoreMissingVnetServiceEndpoint": false
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_comet_hayu_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_comet_vnet_name'), parameters('subnets_web_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu/vulnerabilityAssessments/Default'.",
+            "type": "Microsoft.Sql/servers/vulnerabilityAssessments",
+            "name": "[concat(parameters('servers_comet_hayu_name'), '/', parameters('vulnerabilityAssessments_Default_name'))]",
+            "apiVersion": "2018-06-01-preview",
+            "scale": null,
+            "properties": {
+                "recurringScans": {
+                    "isEnabled": false,
+                    "emailSubscriptionAdmins": true
+                },
+                "storageContainerPath": "[parameters('vulnerabilityAssessments_Default_storageContainerPath')]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_comet_hayu_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu/databases/cometapix/advisors/CreateIndex'.",
+            "type": "Microsoft.Sql/servers/databases/advisors",
+            "name": "[concat(parameters('servers_comet_hayu_name'), '/', parameters('databases_cometapix_name'), '/', parameters('advisors_CreateIndex_name_1'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_comet_hayu_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_comet_hayu_name'), parameters('databases_cometapix_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu/databases/cometapix/advisors/DropIndex'.",
+            "type": "Microsoft.Sql/servers/databases/advisors",
+            "name": "[concat(parameters('servers_comet_hayu_name'), '/', parameters('databases_cometapix_name'), '/', parameters('advisors_DropIndex_name_1'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_comet_hayu_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_comet_hayu_name'), parameters('databases_cometapix_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu/databases/cometapix/advisors/DbParameterization'.",
+            "type": "Microsoft.Sql/servers/databases/advisors",
+            "name": "[concat(parameters('servers_comet_hayu_name'), '/', parameters('databases_cometapix_name'), '/', parameters('advisors_DbParameterization_name_1'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_comet_hayu_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_comet_hayu_name'), parameters('databases_cometapix_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu/databases/cometapix/advisors/DefragmentIndex'.",
+            "type": "Microsoft.Sql/servers/databases/advisors",
+            "name": "[concat(parameters('servers_comet_hayu_name'), '/', parameters('databases_cometapix_name'), '/', parameters('advisors_DefragmentIndex_name_1'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_comet_hayu_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_comet_hayu_name'), parameters('databases_cometapix_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu/databases/cometapix/advisors/ForceLastGoodPlan'.",
+            "type": "Microsoft.Sql/servers/databases/advisors",
+            "name": "[concat(parameters('servers_comet_hayu_name'), '/', parameters('databases_cometapix_name'), '/', parameters('advisors_ForceLastGoodPlan_name_1'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_comet_hayu_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_comet_hayu_name'), parameters('databases_cometapix_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu/databases/cometapix/auditingPolicies/Default'.",
+            "type": "Microsoft.Sql/servers/databases/auditingPolicies",
+            "name": "[concat(parameters('servers_comet_hayu_name'), '/', parameters('databases_cometapix_name'), '/', parameters('auditingPolicies_Default_name_2'))]",
+            "apiVersion": "2014-04-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "auditingState": "New",
+                "eventTypesToAudit": "PlainSQL_Success,PlainSQL_Failure,ParameterizedSQL_Success,ParameterizedSQL_Failure,StoredProcedure_Success,StoredProcedure_Failure,Login_Success,Login_Failure,TransactionManagement_Success,TransactionManagement_Failure",
+                "storageAccountName": null,
+                "storageAccountKey": null,
+                "storageAccountSecondaryKey": null,
+                "storageTableEndpoint": null,
+                "storageAccountResourceGroupName": null,
+                "storageAccountSubscriptionId": null,
+                "useServerDefault": "Enabled",
+                "fullAuditLogsTableName": "SQLDBAuditLogsComethayuCometapix",
+                "auditLogsTableName": "ComethayuCometapix",
+                "retentionDays": "0"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_comet_hayu_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_comet_hayu_name'), parameters('databases_cometapix_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu/databases/cometapix/geoBackupPolicies/Default'.",
+            "type": "Microsoft.Sql/servers/databases/geoBackupPolicies",
+            "name": "[concat(parameters('servers_comet_hayu_name'), '/', parameters('databases_cometapix_name'), '/', parameters('geoBackupPolicies_Default_name_1'))]",
+            "apiVersion": "2014-04-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "state": "Enabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_comet_hayu_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_comet_hayu_name'), parameters('databases_cometapix_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu/databases/cometapix/transparentDataEncryption/current'.",
+            "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+            "name": "[concat(parameters('servers_comet_hayu_name'), '/', parameters('databases_cometapix_name'), '/', parameters('transparentDataEncryption_current_name_1'))]",
+            "apiVersion": "2014-04-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "status": "Enabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_comet_hayu_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_comet_hayu_name'), parameters('databases_cometapix_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu/databases/cometapix/vulnerabilityAssessments/Default'.",
+            "type": "Microsoft.Sql/servers/databases/vulnerabilityAssessments",
+            "name": "[concat(parameters('servers_comet_hayu_name'), '/', parameters('databases_cometapix_name'), '/', parameters('vulnerabilityAssessments_Default_name_2'))]",
+            "apiVersion": "2017-03-01-preview",
+            "scale": null,
+            "properties": {
+                "recurringScans": {
+                    "isEnabled": false,
+                    "emailSubscriptionAdmins": true
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_comet_hayu_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_comet_hayu_name'), parameters('databases_cometapix_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu/databases/master/auditingPolicies/Default'.",
+            "type": "Microsoft.Sql/servers/databases/auditingPolicies",
+            "name": "[concat(parameters('servers_comet_hayu_name'), '/', parameters('databases_master_name'), '/', parameters('auditingPolicies_Default_name_1'))]",
+            "apiVersion": "2014-04-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "auditingState": "New",
+                "eventTypesToAudit": "PlainSQL_Success,PlainSQL_Failure,ParameterizedSQL_Success,ParameterizedSQL_Failure,StoredProcedure_Success,StoredProcedure_Failure,Login_Success,Login_Failure,TransactionManagement_Success,TransactionManagement_Failure",
+                "storageAccountName": null,
+                "storageAccountKey": null,
+                "storageAccountSecondaryKey": null,
+                "storageTableEndpoint": null,
+                "storageAccountResourceGroupName": null,
+                "storageAccountSubscriptionId": null,
+                "useServerDefault": "Enabled",
+                "fullAuditLogsTableName": "SQLDBAuditLogsComethayuMaster",
+                "auditLogsTableName": "ComethayuMaster",
+                "retentionDays": "0"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_comet_hayu_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu/databases/master/geoBackupPolicies/Default'.",
+            "type": "Microsoft.Sql/servers/databases/geoBackupPolicies",
+            "name": "[concat(parameters('servers_comet_hayu_name'), '/', parameters('databases_master_name'), '/', parameters('geoBackupPolicies_Default_name'))]",
+            "apiVersion": "2014-04-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "state": "Enabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_comet_hayu_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu/databases/master/transparentDataEncryption/current'.",
+            "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+            "name": "[concat(parameters('servers_comet_hayu_name'), '/', parameters('databases_master_name'), '/', parameters('transparentDataEncryption_current_name'))]",
+            "apiVersion": "2014-04-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "status": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_comet_hayu_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Sql/servers/comet-hayu/databases/master/vulnerabilityAssessments/Default'.",
+            "type": "Microsoft.Sql/servers/databases/vulnerabilityAssessments",
+            "name": "[concat(parameters('servers_comet_hayu_name'), '/', parameters('databases_master_name'), '/', parameters('vulnerabilityAssessments_Default_name_1'))]",
+            "apiVersion": "2017-03-01-preview",
+            "scale": null,
+            "properties": {
+                "recurringScans": {
+                    "isEnabled": false,
+                    "emailSubscriptionAdmins": true
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_comet_hayu_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Web/sites/comet-hayu-api1/config/web'.",
+            "type": "Microsoft.Web/sites/config",
+            "name": "[concat(parameters('sites_comet_hayu_api1_name'), '/', parameters('config_web_name'))]",
+            "apiVersion": "2016-08-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "numberOfWorkers": 1,
+                "defaultDocuments": [
+                    "Default.htm",
+                    "Default.html",
+                    "Default.asp",
+                    "index.htm",
+                    "index.html",
+                    "iisstart.htm",
+                    "default.aspx",
+                    "index.php",
+                    "hostingstart.html"
+                ],
+                "netFrameworkVersion": "v4.0",
+                "phpVersion": "5.6",
+                "pythonVersion": "",
+                "nodeVersion": "",
+                "linuxFxVersion": "",
+                "windowsFxVersion": null,
+                "requestTracingEnabled": false,
+                "remoteDebuggingEnabled": false,
+                "remoteDebuggingVersion": "VS2017",
+                "httpLoggingEnabled": false,
+                "logsDirectorySizeLimit": 35,
+                "detailedErrorLoggingEnabled": false,
+                "publishingUsername": "$comet-hayu-api1",
+                "publishingPassword": null,
+                "appSettings": null,
+                "azureStorageAccounts": {},
+                "metadata": null,
+                "connectionStrings": null,
+                "machineKey": null,
+                "handlerMappings": null,
+                "documentRoot": null,
+                "scmType": "None",
+                "use32BitWorkerProcess": true,
+                "webSocketsEnabled": false,
+                "alwaysOn": false,
+                "javaVersion": null,
+                "javaContainer": null,
+                "javaContainerVersion": null,
+                "appCommandLine": "",
+                "managedPipelineMode": "Integrated",
+                "virtualApplications": [
+                    {
+                        "virtualPath": "/",
+                        "physicalPath": "site\\wwwroot",
+                        "preloadEnabled": false,
+                        "virtualDirectories": null
+                    }
+                ],
+                "winAuthAdminState": 0,
+                "winAuthTenantState": 0,
+                "customAppPoolIdentityAdminState": false,
+                "customAppPoolIdentityTenantState": false,
+                "runtimeADUser": null,
+                "runtimeADUserPassword": null,
+                "loadBalancing": "LeastRequests",
+                "routingRules": [],
+                "experiments": {
+                    "rampUpRules": []
+                },
+                "limits": null,
+                "autoHealEnabled": false,
+                "autoHealRules": null,
+                "tracingOptions": null,
+                "vnetName": "",
+                "siteAuthEnabled": false,
+                "siteAuthSettings": {
+                    "enabled": null,
+                    "unauthenticatedClientAction": null,
+                    "tokenStoreEnabled": null,
+                    "allowedExternalRedirectUrls": null,
+                    "defaultProvider": null,
+                    "clientId": null,
+                    "clientSecret": null,
+                    "clientSecretCertificateThumbprint": null,
+                    "issuer": null,
+                    "allowedAudiences": null,
+                    "additionalLoginParams": null,
+                    "isAadAutoProvisioned": false,
+                    "googleClientId": null,
+                    "googleClientSecret": null,
+                    "googleOAuthScopes": null,
+                    "facebookAppId": null,
+                    "facebookAppSecret": null,
+                    "facebookOAuthScopes": null,
+                    "twitterConsumerKey": null,
+                    "twitterConsumerSecret": null,
+                    "microsoftAccountClientId": null,
+                    "microsoftAccountClientSecret": null,
+                    "microsoftAccountOAuthScopes": null
+                },
+                "cors": null,
+                "push": null,
+                "apiDefinition": null,
+                "autoSwapSlotName": null,
+                "localMySqlEnabled": false,
+                "managedServiceIdentityId": null,
+                "xManagedServiceIdentityId": null,
+                "ipSecurityRestrictions": null,
+                "scmIpSecurityRestrictions": null,
+                "scmIpSecurityRestrictionsUseMain": null,
+                "http20Enabled": true,
+                "minTlsVersion": "1.2",
+                "ftpsState": "Disabled",
+                "reservedInstanceCount": 0
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_comet_hayu_api1_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/f3f72960-6427-4525-8ad0-c8f5aa6c1ed8/resourceGroups/Comet/providers/Microsoft.Web/sites/comet-hayu-api1/hostNameBindings/comet-hayu-api1.azurewebsites.net'.",
+            "type": "Microsoft.Web/sites/hostNameBindings",
+            "name": "[concat(parameters('sites_comet_hayu_api1_name'), '/', parameters('hostNameBindings_comet_hayu_api1.azurewebsites.net_name'))]",
+            "apiVersion": "2016-08-01",
+            "location": "West Europe",
+            "scale": null,
+            "properties": {
+                "siteName": "comet-hayu-api1",
+                "domainId": null,
+                "hostNameType": "Verified"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites', parameters('sites_comet_hayu_api1_name'))]"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,156 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vulnerabilityAssessments_Default_storageContainerPath": {
+            "value": null
+        },
+        "servers_comet_hayu_name": {
+            "value": null
+        },
+        "sites_comet_hayu_api1_name": {
+            "value": null
+        },
+        "virtualMachines_runner_name": {
+            "value": null
+        },
+        "components_comet_hayu_name": {
+            "value": null
+        },
+        "virtualNetworks_comet_vnet_name": {
+            "value": null
+        },
+        "networkInterfaces_runner139_name": {
+            "value": null
+        },
+        "publicIPAddresses_runner_ip_name": {
+            "value": null
+        },
+        "config_web_name": {
+            "value": null
+        },
+        "networkSecurityGroups_runner_nsg_name": {
+            "value": null
+        },
+        "storageAccounts_cometstoragehayou_name": {
+            "value": null
+        },
+        "advisors_DropIndex_name": {
+            "value": null
+        },
+        "databases_cometapix_name": {
+            "value": null
+        },
+        "keys_ServiceManaged_name": {
+            "value": null
+        },
+        "advisors_CreateIndex_name": {
+            "value": null
+        },
+        "subnets_web_name": {
+            "value": null
+        },
+        "advisors_DefragmentIndex_name": {
+            "value": null
+        },
+        "auditingPolicies_Default_name": {
+            "value": null
+        },
+        "advisors_ForceLastGoodPlan_name": {
+            "value": null
+        },
+        "alertrules_Failure_Anomalies___comet_hayu_name": {
+            "value": null
+        },
+        "advisors_DbParameterization_name": {
+            "value": null
+        },
+        "encryptionProtector_current_name": {
+            "value": null
+        },
+        "firewallRules_Joakim_Home_IP_name": {
+            "value": null
+        },
+        "firewallRules_June_Office_IP_name": {
+            "value": null
+        },
+        "elasticPools_Comet_HAYU_sql_pool_name": {
+            "value": null
+        },
+        "vulnerabilityAssessments_Default_name": {
+            "value": null
+        },
+        "subnets_GatewaySubnet_name": {
+            "value": null
+        },
+        "securityRules_RDP_name": {
+            "value": null
+        },
+        "securityRules_SSH_name": {
+            "value": null
+        },
+        "virtualNetworkRules_web2sqlVnetRule1_name": {
+            "value": null
+        },
+        "securityRules_HTTPS_name": {
+            "value": null
+        },
+        "firewallRules_AllowAllWindowsAzureIps_name": {
+            "value": null
+        },
+        "advisors_DropIndex_name_1": {
+            "value": null
+        },
+        "advisors_CreateIndex_name_1": {
+            "value": null
+        },
+        "auditingPolicies_Default_name_1": {
+            "value": null
+        },
+        "databases_master_name": {
+            "value": null
+        },
+        "geoBackupPolicies_Default_name": {
+            "value": null
+        },
+        "advisors_DefragmentIndex_name_1": {
+            "value": null
+        },
+        "auditingPolicies_Default_name_2": {
+            "value": null
+        },
+        "geoBackupPolicies_Default_name_1": {
+            "value": null
+        },
+        "advisors_ForceLastGoodPlan_name_1": {
+            "value": null
+        },
+        "advisors_DbParameterization_name_1": {
+            "value": null
+        },
+        "vulnerabilityAssessments_Default_name_1": {
+            "value": null
+        },
+        "transparentDataEncryption_current_name": {
+            "value": null
+        },
+        "vulnerabilityAssessments_Default_name_2": {
+            "value": null
+        },
+        "transparentDataEncryption_current_name_1": {
+            "value": null
+        },
+        "hostNameBindings_comet_hayu_api1.azurewebsites.net_name": {
+            "value": null
+        },
+        "virtualMachines_runner_id": {
+            "value": null
+        },
+        "virtualMachines_runner_id_1": {
+            "value": null
+        },
+        "sites_comet_hayu_api1_serverFarmId": {
+            "value": null
+        }
+    }
+}
